@@ -12,7 +12,12 @@ import java.util.Random;
  * @author xp
  */
 public class VentanaCodingBat extends javax.swing.JFrame {
-
+    
+    //se declaran las variables
+    int x;
+    int y;
+    
+    
     /**
      * Creates new form VentanaCodingBat
      */
@@ -21,10 +26,18 @@ public class VentanaCodingBat extends javax.swing.JFrame {
     }
     
     public int[] makeMiddle(int[] nums) {
+        //como el array va a ser par se puede dividir entre 2 contando con que parte de 0.
+        
+        //coge el numero de la izquierda
         int a = nums[nums.length/2-1];
+        //coge numero del cociente
         int b = nums[nums.length/2];
         int array [] = {a,b};
+        //declaro x e y para que no de error en el setText
+        x = array[0];
+        y = array[1];
         return array;
+        
                 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,21 +48,51 @@ public class VentanaCodingBat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("arrayate");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        //escribo un array como ejemplo
+        int array[] ={1, 2, 3, 4};
+        //ejecuta el public para poder inicializar el setText
+        makeMiddle(array);
+        jLabel1.setText("" + x +","+ y);
+    }//GEN-LAST:event_jButton1MousePressed
 
     /**
      * @param args the command line arguments
@@ -87,5 +130,7 @@ public class VentanaCodingBat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
